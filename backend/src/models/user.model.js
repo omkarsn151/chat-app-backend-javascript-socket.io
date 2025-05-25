@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const userSchema = new Schema(
     {
@@ -32,6 +33,10 @@ const userSchema = new Schema(
         },
         coverImage: {
             type: String,
+        },
+        refreshToken: {
+            type: String,
+            default: null,
         },
     }, { timestamps: true }
 );
