@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new Schema(
     {
@@ -27,6 +28,9 @@ const userSchema = new Schema(
             required: [true, "Password is required"],
         },
         avatar: {
+            type: String,
+        },
+        coverImage: {
             type: String,
         },
     }, { timestamps: true }
@@ -77,7 +81,5 @@ userSchema.methods.generateRefreshToken = function () {
         }
     );
 };
-
-
 
 export const User = mongoose.model("User", userSchema);
