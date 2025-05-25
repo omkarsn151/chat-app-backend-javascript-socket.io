@@ -26,7 +26,7 @@ const userSchema = new Schema(
             type: String,
             required: [true, "Password is required"],
         },
-        profilePic: {
+        avatar: {
             type: String,
         },
     }, { timestamps: true }
