@@ -47,12 +47,10 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         throw new ApiError(401, "User not found");
     }
 
-    // ✅ Only now do we compare
     if (incomingRefreshToken !== user.refreshToken) {
         throw new ApiError(401, "Refresh token does not match or already used");
     }
 
-    // ✅ Valid token → generate new ones
     const newAccessToken = user.generateAccessToken();
     const newRefreshToken = user.generateRefreshToken();
 
